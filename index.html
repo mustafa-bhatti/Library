@@ -8,9 +8,37 @@
 </head>
 <body>
     <h1>Library</h1>
-    <div class="books-container">
+    <div class="new-book">
+        <button class="open-dialog">New Book</button>
+        <dialog>
+            <form method="dialog">
+                <div class="input-div">
+                    <label for id="bookName">Book Name</label>
+                    <input type="text" name="bookName" id="bookName" required>
+                </div>
+                <div class="input-div">
+                    <label for id="authorName">Author</label>
+                    <input type="text" name="authorName" id="authorName" required>
+                </div>
+                <div class="input-div">
+                    <label for id="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" required>
+                </div>
+                <div class="input-div last-input">
+                    <label for id="read">Have You Read it?</label>
+                    <input type="checkbox" name="read" id="read" checked>
+                </div>
 
-        </div>
+                
+                <button type="button" class="close-dialog">Cancel</button>
+                <button type="submit" class="submit-dialog">Submit</button>
+            </form>
+        </dialog>
+    </div>
+
+    <div class="books-container">
+        <!-- book cards will get inserted here -->
+    </div>
     </div>
 
     <script src="script.js"></script>

@@ -58,3 +58,16 @@ for (item in myLibray[1]){
 }
 console.log(myLibray)
 
+// Dialog
+
+const dialog = document.querySelector("dialog");
+const openDialog = document.querySelector(".open-dialog");
+const closeDialog = document.querySelector(".close-dialog");
+
+openDialog.addEventListener("click" , () => {
+    dialog.showModal();
+})
+
+closeDialog.addEventListener("click", () => {
+    dialog.close();
+})

@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    --green : rgb(1, 26, 3);
+    --greenLight: rgb(22, 195, 22);
 }
 body{
     color: white;
@@ -21,7 +23,7 @@ body{
     color:white;
     padding: 10px;
     border: 3px solid rgb(8, 65, 3);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+    box-shadow: 5px 5px 5px rgba(31, 88, 35, 0.432);
     font-size: 20px;
 }
 
@@ -34,4 +36,84 @@ body{
 .read-true {
     text-transform: capitalize;
     font-weight: 600;
+}
+
+.new-book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+   margin: 20px 50px 0px 0px;
+   padding: 15px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   -ms-border-radius: 15px;
+   -o-border-radius: 15px;
+   border-radius: 15px;
+   border: none;
+   background-color: var(--greenLight);
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+}
+dialog{
+    height: 60vh;
+    width: min(60vw,450px);
+    margin: auto;
+    background-color: rgb(4, 18, 2);
+    color: rgb(0, 255, 0);
+
+}
+::backdrop {
+  background-color: var(--green);
+  opacity: 0.75;
+}
+
+/* form styling */
+form {
+    padding: 30px;
+}
+label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    display: block;
+}
+input {
+    padding: 5px 10px;
+    width: min(250px,80%);
+    box-shadow: 3px 3px 12px rgba(6, 246, 82, 0.685);
+    outline: none;
+    border: 1px solid green;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+}
+.input-div {
+    margin-top: 20px;
+}
+.last-input > * {
+    margin: 0;
+    padding: 0;
+}
+.last-input{
+    display: flex;
+    /* justify-content: center; */
+    gap: 20px;
+    align-items: center;
+}
+input#read{
+    accent-color: var(--green);
+}
+
+.last-input input{
+    width: 30px;
+    height: 30px;
+}
+.close-dialog{
+    background-color: red;
 }
