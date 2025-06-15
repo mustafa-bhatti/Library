@@ -19,7 +19,7 @@ function addBookToLibrary(name,author,pages,read){
 }
 addBookToLibrary("Hobbit", "J.R.R Tolkein", 227, "true");
 addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
-addBookToLibrary("Hobbit", "J.R.R Tolkein", 287, "false");
+addBookToLibrary("Alchemist", "J.R.R Tolkein", 287, "false");
 
 const booksContainer = document.querySelector(".books-container");
 console.log(booksContainer)

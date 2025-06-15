@@ -4,20 +4,23 @@
     box-sizing: border-box;
 }
 body{
-    background-color: beige;
+    color: white;
+    background-color: rgb(0, 0, 0);
 }
 
-.books-container{
+.books-container{   
     display: grid;
     margin: 50px;
+    padding: 40px;
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    background-color: white;
+    background-color: rgb(3, 40, 8);
     gap: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(2, 54, 12);
 }
 .book-card{
+    color:white;
     padding: 10px;
-    border: 3px solid black;
+    border: 3px solid rgb(8, 65, 3);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
     font-size: 20px;
 }
