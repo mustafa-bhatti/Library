@@ -13,44 +13,44 @@ function book(name,author,pages,read){
     this.read = read; 
 } 
 
+
+
+function displayBooks(){
+    const bookCard = document.createElement('div');
+    bookCard.className = "book-card";
+    let lastBookElement = myLibray.at(-1)
+    for (item in lastBookElement){
+        if (item != "id"){
+            let value = lastBookElement[item];
+            const element = document.createElement("p");
+            if (item == "read"){
+                element.textContent = "Read : " + value;
+                element.className = "read-true"
+                
+            }
+            else if(item == "page"){
+                element.textContent = value + " pages";
+            }
+            else {
+                element.textContent = value;
+            }
+            bookCard.appendChild(element);
+        }
+    }
+    booksContainer.appendChild(bookCard);
+}
+
+
 function addBookToLibrary(name,author,pages,read){
     const newBook = new book(name,author,pages,read) 
     myLibray.push(newBook)
+    displayBooks();
 }
+const booksContainer = document.querySelector(".books-container");
+
 addBookToLibrary("Hobbit", "J.R.R Tolkein", 227, "true");
 addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
 addBookToLibrary("Alchemist", "J.R.R Tolkein", 287, "false");
-
-const booksContainer = document.querySelector(".books-container");
-function displayBooks(){
-    for (let i=0; i<myLibray.length;i++){
-        const bookCard = document.createElement('div');
-        bookCard.className = "book-card";
-        
-        for (item in myLibray[i]){
-            if (item != "id"){
-                let value = myLibray[i][item];
-                const element = document.createElement("p");
-                    if (item == "read"){
-                        element.textContent = "Read : " + value;
-                        element.className = "read-true"
-
-                    }
-                    else if(item == "page"){
-                        element.textContent = value + " pages";
-                    }
-                    else {
-                        element.textContent = value;
-                    }
-                bookCard.appendChild(element);
-            }
-        }
-        booksContainer.appendChild(bookCard);
-    }
-}
-
-
-
 // Dialog
 
 const dialog = document.querySelector("dialog");
@@ -72,8 +72,6 @@ submitBtn.addEventListener("click", () => {
         readBool = false;
     }
     addBookToLibrary(bookName,author,pages,readBool);
-    displayBooks()
-    console.log(readBool)
 })
 openDialog.addEventListener("click" , () => {
     dialog.showModal();
@@ -82,4 +80,3 @@ openDialog.addEventListener("click" , () => {
 closeDialog.addEventListener("click", () => {
     dialog.close();
 })
-displayBooks()
