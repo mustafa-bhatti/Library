@@ -22,7 +22,6 @@ addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
 addBookToLibrary("Alchemist", "J.R.R Tolkein", 287, "false");
 
 const booksContainer = document.querySelector(".books-container");
-console.log(booksContainer)
 function displayBooks(){
     for (let i=0; i<myLibray.length;i++){
         const bookCard = document.createElement('div');
@@ -49,21 +48,33 @@ function displayBooks(){
         booksContainer.appendChild(bookCard);
     }
 }
-displayBooks();
-for (item in myLibray[1]){
-    if (item != "id"){
-        
-        console.log(myLibray[1][item]);
-    }
-}
-console.log(myLibray)
+
+
 
 // Dialog
 
 const dialog = document.querySelector("dialog");
 const openDialog = document.querySelector(".open-dialog");
 const closeDialog = document.querySelector(".close-dialog");
+const mainForm = document.querySelector("#main-form");
+const submitBtn = document.querySelector(".submit-dialog");
 
+submitBtn.addEventListener("click", () => {
+
+    const bookName = document.querySelector("#bookName").value;
+    const author = document.querySelector("#authorName").value;
+    const pages = document.querySelector("#pages").value;
+    let readBool = document.querySelector("#read").value;
+    if (readBool == "on"){
+        readBool = true;
+    }
+    else {
+        readBool = false;
+    }
+    addBookToLibrary(bookName,author,pages,readBool);
+    displayBooks()
+    console.log(readBool)
+})
 openDialog.addEventListener("click" , () => {
     dialog.showModal();
 })
@@ -71,3 +82,4 @@ openDialog.addEventListener("click" , () => {
 closeDialog.addEventListener("click", () => {
     dialog.close();
 })
+displayBooks()
