@@ -7,3 +7,18 @@ body{
     background-color: beige;
 }
 
+.books-container{
+    display: grid;
+    margin: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    background-color: white;
+    gap: 10px;
+    border: 1px solid black;
+}
+.book-card{
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+    font-size: 20px;
+}
+
