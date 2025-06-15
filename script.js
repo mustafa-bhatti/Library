@@ -19,7 +19,7 @@ function addBookToLibrary(name,author,pages,read){
 }
 addBookToLibrary("Hobbit", "J.R.R Tolkein", 227, "true");
 addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
-addBookToLibrary("Hobbit", "J.R.R Tolkein", 287, "true");
+addBookToLibrary("Hobbit", "J.R.R Tolkein", 287, "false");
 
 const booksContainer = document.querySelector(".books-container");
 console.log(booksContainer)
@@ -32,7 +32,17 @@ function displayBooks(){
             if (item != "id"){
                 let value = myLibray[i][item];
                 const element = document.createElement("p");
-                element.textContent = value;
+                    if (item == "read"){
+                        element.textContent = "Read : " + value;
+                        element.className = "read-true"
+
+                    }
+                    else if(item == "page"){
+                        element.textContent = value + " pages";
+                    }
+                    else {
+                        element.textContent = value;
+                    }
                 bookCard.appendChild(element);
             }
         }
