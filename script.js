@@ -2,6 +2,15 @@
 
 const myLibray = [];
 
+
+const booksContainer = document.querySelector(".books-container");
+const dialog = document.querySelector("dialog");
+const openDialog = document.querySelector(".open-dialog");
+const closeDialog = document.querySelector(".close-dialog");
+const mainForm = document.querySelector("#main-form");
+const submitBtn = document.querySelector(".submit-dialog");
+const inputField = document.querySelectorAll("input");
+
 function book(name,author,pages,read){
     /* Expected values
     book(Hobbit, J.R.R Tolkein, 287, true )     */
@@ -13,7 +22,24 @@ function book(name,author,pages,read){
     this.read = read; 
 } 
 
+function deleteBook(e){
+    let childCard = e.target.parentElement
+    booksContainer.removeChild(childCard)
 
+    let deleteID = childCard.getAttribute("data-id");
+    // find the book node in MyLibrary array and remove
+    let index = -1;
+    for (let i=0;i<myLibray.length;i++){
+        if (myLibray[i].id == deleteID){
+            console.log
+            index = i;
+            break;
+        }
+    }
+    myLibray.splice(index,1)
+    console.log(myLibray);
+
+}
 
 function displayBooks(){
     const bookCard = document.createElement('div');
@@ -40,10 +66,10 @@ function displayBooks(){
         }
     }
     const deleteBtn = document.createElement("button");
-    deleteBtn.className="delete-btn"
-    deleteBtn.textContent = "Delete"
+    deleteBtn.className="delete-btn";
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click",deleteBook);
     bookCard.appendChild(deleteBtn)
-
     booksContainer.appendChild(bookCard);
 }
 
@@ -53,19 +79,12 @@ function addBookToLibrary(name,author,pages,read){
     myLibray.push(newBook)
     displayBooks();
 }
-const booksContainer = document.querySelector(".books-container");
 
 addBookToLibrary("Hobbit", "J.R.R Tolkein", 227, "true");
 addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
 addBookToLibrary("Alchemist", "J.R.R Tolkein", 287, "false");
 // Dialog
 
-const dialog = document.querySelector("dialog");
-const openDialog = document.querySelector(".open-dialog");
-const closeDialog = document.querySelector(".close-dialog");
-const mainForm = document.querySelector("#main-form");
-const submitBtn = document.querySelector(".submit-dialog");
-const inputField = document.querySelectorAll("input");
 
 submitBtn.addEventListener("click", (e) => {
     let validity = true;
@@ -92,5 +111,3 @@ openDialog.addEventListener("click" , () => {
 closeDialog.addEventListener("click", () => {
     dialog.close();
 })
-
-console.log(myLibray)
