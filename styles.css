@@ -57,6 +57,11 @@ button {
    font-weight: bold;
    cursor: pointer;
 }
+
+button:active{
+    background-color: black;
+}
+
 dialog{
     height: 60vh;
     width: min(60vw,450px);
@@ -114,6 +119,10 @@ input#read{
     width: 30px;
     height: 30px;
 }
-.close-dialog{
+.close-dialog,.delete-btn{
     background-color: red;
+}
+
+.delete-btn{
+    padding: 10px;
 }

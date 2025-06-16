@@ -19,6 +19,8 @@ function displayBooks(){
     const bookCard = document.createElement('div');
     bookCard.className = "book-card";
     let lastBookElement = myLibray.at(-1)
+    bookCard.setAttribute("data-id",lastBookElement['id'])
+
     for (item in lastBookElement){
         if (item != "id"){
             let value = lastBookElement[item];
@@ -37,6 +39,11 @@ function displayBooks(){
             bookCard.appendChild(element);
         }
     }
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className="delete-btn"
+    deleteBtn.textContent = "Delete"
+    bookCard.appendChild(deleteBtn)
+
     booksContainer.appendChild(bookCard);
 }
 
@@ -85,3 +92,5 @@ openDialog.addEventListener("click" , () => {
 closeDialog.addEventListener("click", () => {
     dialog.close();
 })
+
+console.log(myLibray)
