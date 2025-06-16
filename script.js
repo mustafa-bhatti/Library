@@ -58,20 +58,29 @@ const openDialog = document.querySelector(".open-dialog");
 const closeDialog = document.querySelector(".close-dialog");
 const mainForm = document.querySelector("#main-form");
 const submitBtn = document.querySelector(".submit-dialog");
+const inputField = document.querySelectorAll("input");
 
 submitBtn.addEventListener("click", () => {
-
-    const bookName = document.querySelector("#bookName").value;
-    const author = document.querySelector("#authorName").value;
-    const pages = document.querySelector("#pages").value;
-    let readBool = document.querySelector("#read").value;
-    if (readBool == "on"){
-        readBool = true;
+    console.log(inputField)
+    let validity = true;
+    inputField.forEach((value) => {
+        if (value.checkValidity() == false){
+            validity = false
+        }   
+    });
+    if (validity){
+        const bookName = document.querySelector("#bookName").value;
+        const author = document.querySelector("#authorName").value;
+        const pages = document.querySelector("#pages").value;
+        let readBool = document.querySelector("#read").value;
+        if (readBool == "on"){
+            readBool = true;
+        }
+        else {
+            readBool = false;
+        }
+        addBookToLibrary(bookName,author,pages,readBool);
     }
-    else {
-        readBool = false;
-    }
-    addBookToLibrary(bookName,author,pages,readBool);
 })
 openDialog.addEventListener("click" , () => {
     dialog.showModal();
