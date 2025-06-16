@@ -60,26 +60,22 @@ const mainForm = document.querySelector("#main-form");
 const submitBtn = document.querySelector(".submit-dialog");
 const inputField = document.querySelectorAll("input");
 
-submitBtn.addEventListener("click", () => {
-    console.log(inputField)
+submitBtn.addEventListener("click", (e) => {
     let validity = true;
     inputField.forEach((value) => {
         if (value.checkValidity() == false){
-            validity = false
+            validity = false;
         }   
     });
     if (validity){
         const bookName = document.querySelector("#bookName").value;
         const author = document.querySelector("#authorName").value;
         const pages = document.querySelector("#pages").value;
-        let readBool = document.querySelector("#read").value;
-        if (readBool == "on"){
-            readBool = true;
-        }
-        else {
-            readBool = false;
-        }
+        let readBool = document.querySelector("#read").checked;
         addBookToLibrary(bookName,author,pages,readBool);
+        mainForm.reset();
+        e.preventDefault()
+        dialog.close()
     }
 })
 openDialog.addEventListener("click" , () => {
