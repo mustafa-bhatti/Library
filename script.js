@@ -20,7 +20,22 @@ function book(name,author,pages,read){
     this.author = author;
     this.page = pages;
     this.read = read; 
+
+
 } 
+
+book.prototype.isRead = function() {
+        if (this.read == true) {
+            this.read = false;
+        }
+        else {
+            this.read = true
+        }
+    }
+
+
+
+    
 
 function deleteBook(e){
     let childCard = e.target.parentElement
@@ -41,6 +56,10 @@ function deleteBook(e){
 
 }
 
+
+function changeRead(id){
+    console.log(id)
+}
 function displayBooks(){
     const bookCard = document.createElement('div');
     bookCard.className = "book-card";
@@ -48,18 +67,20 @@ function displayBooks(){
     bookCard.setAttribute("data-id",lastBookElement['id'])
 
     for (item in lastBookElement){
-        if (item != "id"){
+        if (item != "id" ){
             let value = lastBookElement[item];
             const element = document.createElement("p");
             if (item == "read"){
                 element.textContent = "Read : " + value;
                 element.className = "read-true"
+                element.addEventListener("click",changeRead(lastBookElement['id']))
                 
             }
             else if(item == "page"){
                 element.textContent = value + " pages";
             }
-            else {
+            else if(item != "isRead"){
+                
                 element.textContent = value;
             }
             bookCard.appendChild(element);
