@@ -25,17 +25,13 @@ function book(name,author,pages,read){
 } 
 
 book.prototype.isRead = function() {
-        if (this.read == true) {
-            this.read = false;
+        if (this.read == 'true') {
+            this.read = 'false';
         }
         else {
-            this.read = true
+            this.read = 'true'
         }
-    }
-
-
-
-    
+    } 
 
 function deleteBook(e){
     let childCard = e.target.parentElement
@@ -56,9 +52,8 @@ function deleteBook(e){
 
 }
 
-
-function changeRead(id){
-    console.log(id)
+function changeRead(readId){
+    
 }
 function displayBooks(){
     const bookCard = document.createElement('div');
@@ -73,14 +68,22 @@ function displayBooks(){
             if (item == "read"){
                 element.textContent = "Read : " + value;
                 element.className = "read-true"
-                element.addEventListener("click",changeRead(lastBookElement['id']))
+                element.addEventListener("click", () => {
+                let newValue = null
+                for (let i = 0;i<myLibray.length;i++){
+                        if (myLibray[i].id  == lastBookElement['id']){
+                            myLibray[i].isRead()
+                            newValue= myLibray[i].read
+                        }
+                    }                    
+                    element.textContent = "Read : " + newValue;
+                })
                 
             }
             else if(item == "page"){
                 element.textContent = value + " pages";
             }
             else if(item != "isRead"){
-                
                 element.textContent = value;
             }
             bookCard.appendChild(element);
