@@ -5,6 +5,11 @@
     --green : rgb(1, 26, 3);
     --greenLight: rgb(22, 195, 22);
 }
+h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 43px
+}
 body{
     color: white;
     background-color: rgb(0, 0, 0);
