@@ -1,7 +1,6 @@
-// Library
+// Library Script - Ghulam Mustafa Bhatti
 
 const myLibray = [];
-
 
 const booksContainer = document.querySelector(".books-container");
 const dialog = document.querySelector("dialog");
@@ -20,8 +19,6 @@ function book(name,author,pages,read){
     this.author = author;
     this.page = pages;
     this.read = read; 
-
-
 } 
 
 book.prototype.isRead = function() {
@@ -42,13 +39,11 @@ function deleteBook(e){
     let index = -1;
     for (let i=0;i<myLibray.length;i++){
         if (myLibray[i].id == deleteID){
-            console.log
             index = i;
             break;
         }
     }
     myLibray.splice(index,1)
-    console.log(myLibray);
 
 }
 
@@ -77,8 +72,7 @@ function displayBooks(){
                         }
                     }                    
                     element.textContent = "Read : " + newValue;
-                })
-                
+                })      
             }
             else if(item == "page"){
                 element.textContent = value + " pages";
@@ -97,7 +91,6 @@ function displayBooks(){
     booksContainer.appendChild(bookCard);
 }
 
-
 function addBookToLibrary(name,author,pages,read){
     const newBook = new book(name,author,pages,read) 
     myLibray.push(newBook)
@@ -108,7 +101,6 @@ addBookToLibrary("Hobbit", "J.R.R Tolkein", 227, "true");
 addBookToLibrary("Lord Of The Rings", "J.R.R Tolkein", 217, "true");
 addBookToLibrary("Alchemist", "J.R.R Tolkein", 287, "false");
 // Dialog
-
 
 submitBtn.addEventListener("click", (e) => {
     let validity = true;
