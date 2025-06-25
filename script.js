@@ -18,16 +18,11 @@ function book(name,author,pages,read){
     this.name = name;
     this.author = author;
     this.page = pages;
-    this.read = read; 
+    this.read = Boolean(read); 
 } 
 
 book.prototype.isRead = function() {
-        if (this.read == 'true') {
-            this.read = 'false';
-        }
-        else {
-            this.read = 'true'
-        }
+        this.read = !this.read;
     } 
 
 function deleteBook(e){
