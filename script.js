@@ -21,20 +21,6 @@ class book{
         this.read = !this.read
     }
 }
-// function book(name,author,pages,read){
-//     /* Expected values
-//     book(Hobbit, J.R.R Tolkein, 287, true )     */
-
-//     this.id = crypto.randomUUID();
-//     this.name = name;
-//     this.author = author;
-//     this.page = pages;
-//     this.read = Boolean(read); 
-// } 
-
-// book.prototype.isRead = function() {
-//         this.read = !this.read;
-//     } 
 
 function deleteBook(e){
     let childCard = e.target.parentElement
